@@ -16,7 +16,7 @@ gateway.getUser(157, (err, user) => {
   const requestTransferObj = {
     sourceUser: user,
     destinationUserId: 203,
-    nineumUniqueIds: ['01000000010204030802020100000002'],
+    nineumUniqueIds: [user.nineum[0]],
   }  
   gateway.requestTransfer(requestTransferObj, (err, trasnferRequest) => {
     if (err) console.log(err)
