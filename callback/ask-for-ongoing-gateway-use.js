@@ -1,17 +1,18 @@
 const PlanetNineGateway = require('planet-nine-gateway-framework')
-const crypto = require('planet-nine-crypto')
 
 let gateway = new PlanetNineGateway()
 
-const keys = crypto.generateKeys('testSeed')
+const keys = PlanetNineGateway.generateKeys('testSeed')
 
-crypto.getKeys = function() {
+gateway.getKeys = function() {
   return keys
 }
 
-gateway.ongoingGateway({gatewayName: 'testGateway', publicKey: keys.publicKey})
+gateway.ongoingGateway({gatewayName: 'testGateway', publicKey: gateway.keys.publicKey})
 
-gateway.getUserIdByUsername('testuser12', (err, userId) => {
+const username = 'testuser12'
+
+gateway.getUserIdByUsername(username, (err, userId) => {
   console.log(`asking for ongoing gateway authorization for user ${userId}`);
   if (err) return console.log(err)
   gateway.askForOngoingGatewayUsage(userId, (erro, user) => {
