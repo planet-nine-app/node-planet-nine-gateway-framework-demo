@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/planet-nine-app/node-planet-nine-gateway-framework-demo#readme",
   "dependencies": {
-    "planet-nine-gateway-framework": "^1.0.3"
+    "planet-nine-gateway-framework": "^1.1.0"
   }
 }
